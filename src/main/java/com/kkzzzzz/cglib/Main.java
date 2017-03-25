@@ -13,13 +13,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //创建加强类（其实就是代理类的雏形），这是我根据单词意思理解的
         Enhancer enhancer = new Enhancer();
 
-        //代理类需要继承委托类，（使用的是继承实现代理）
+        //代理类需要继承目标类，（使用的是extend实现代理）
         enhancer.setSuperclass(HelloWorld.class);
 
-        //加强类设置回调对象来拦截代理对象方法调用，拦截到后，用这个回调对象的intercept方法增强原方法调用，（也就是添加一些操作）
+        //加强类设置代理类，当拦截到目标类的方法调用，用这个代理的intercept方法对原方法加强
         enhancer.setCallback(new Proxy());
 
         //创建代理对象（这里的helloWorld才叫做代理对象）

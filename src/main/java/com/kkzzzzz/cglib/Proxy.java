@@ -15,11 +15,12 @@ import java.lang.reflect.Method;
 public class Proxy implements MethodInterceptor {
 
 	public Object intercept(Object object, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
-		System.out.println("Before Helloworld~");
+
+		System.out.println("do something before invoke, like log...");
 
 		methodProxy.invokeSuper(object, args);
 
-		System.out.println("After Helloworld~");
+		System.out.println("do something after invoke, like log...");
 
 		return null;
 	}
